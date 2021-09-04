@@ -208,3 +208,196 @@ test("iterator", () => {
   }
   expect(v).toEqual([0, 1, 2, 3, 4]);
 });
+
+test("dfs", () => {
+  const root = {
+    value: 999,
+    a: {
+      value: 215,
+      a: {
+        value: 532,
+        a: {
+          value: 231,
+        },
+        b: {
+          value: 923,
+        },
+      },
+      b: {
+        value: 472,
+        a: {
+          value: 723,
+        },
+        b: {
+          value: 936,
+        },
+      },
+    },
+    b: {
+      value: 623,
+      a: {
+        value: 123,
+        a: {
+          value: 763,
+        },
+        b: {
+          value: 843,
+        },
+      },
+      b: {
+        value: 723,
+        a: {
+          value: 653,
+        },
+        b: {
+          value: 632,
+        },
+      },
+    },
+  };
+
+  const list = [];
+
+  const dfs = (node) => {
+    if (!node) return;
+
+    list.push(node.value);
+    dfs(node.a);
+    dfs(node.b);
+  };
+
+  dfs(root);
+  expect(list).toEqual([
+    999, 215, 532, 231, 923, 472, 723, 936, 623, 123, 763, 843, 723, 653, 632,
+  ]);
+});
+
+test("dfs 2", () => {
+  const root = {
+    value: 999,
+    a: {
+      value: 215,
+      a: {
+        value: 532,
+        a: {
+          value: 231,
+        },
+        b: {
+          value: 923,
+        },
+      },
+      b: {
+        value: 472,
+        a: {
+          value: 723,
+        },
+        b: {
+          value: 936,
+        },
+      },
+    },
+    b: {
+      value: 623,
+      a: {
+        value: 123,
+        a: {
+          value: 763,
+        },
+        b: {
+          value: 843,
+        },
+      },
+      b: {
+        value: 723,
+        a: {
+          value: 653,
+        },
+        b: {
+          value: 632,
+        },
+      },
+    },
+  };
+
+  const list = [];
+  const stack = [];
+
+  stack.push(root);
+
+  while (stack.length) {
+    const node = stack.pop();
+    list.push(node.value);
+
+    if (node.b) stack.push(node.b);
+    if (node.a) stack.push(node.a); // note that it is pushed last
+  }
+
+  expect(list).toEqual([
+    999, 215, 532, 231, 923, 472, 723, 936, 623, 123, 763, 843, 723, 653, 632,
+  ]);
+});
+
+test("bfs", () => {
+  const root = {
+    value: 999,
+    a: {
+      value: 215,
+      a: {
+        value: 532,
+        a: {
+          value: 231,
+        },
+        b: {
+          value: 923,
+        },
+      },
+      b: {
+        value: 472,
+        a: {
+          value: 723,
+        },
+        b: {
+          value: 936,
+        },
+      },
+    },
+    b: {
+      value: 623,
+      a: {
+        value: 123,
+        a: {
+          value: 763,
+        },
+        b: {
+          value: 843,
+        },
+      },
+      b: {
+        value: 723,
+        a: {
+          value: 653,
+        },
+        b: {
+          value: 632,
+        },
+      },
+    },
+  };
+
+  const list = [];
+  const stack = [];
+
+  stack.push(root);
+
+  while (stack.length) {
+    const node = stack.shift();
+    list.push(node.value);
+
+    if (node.a) stack.push(node.a);
+    if (node.b) stack.push(node.b);
+  }
+
+  expect(list).toEqual([
+    999, 215, 623, 532, 472, 123, 723, 231, 923, 723, 936, 763, 843, 653, 632,
+  ]);
+});
