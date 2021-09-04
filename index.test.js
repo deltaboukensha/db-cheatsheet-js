@@ -155,3 +155,19 @@ test("lookup", () => {
   }, {});
   expect(lookup).toEqual({ a: "a", b: "b", c: "c" });
 });
+
+test("array destructuring assignment", () => {
+  const array = ["a", "b", "c", "d", "e"];
+  const [a, b, ...rest] = array;
+  expect(a).toEqual("a");
+  expect(b).toEqual("b");
+  expect(rest).toEqual(["c", "d", "e"]);
+});
+
+test("array destructuring assignment", () => {
+  const o = { a: "a", b: "b", c: "c", d: "d", e: "e" };
+  const { a, b, ...rest } = o;
+  expect(a).toEqual("a");
+  expect(b).toEqual("b");
+  expect(rest).toEqual({ c: "c", d: "d", e: "e" });
+});
