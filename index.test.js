@@ -429,11 +429,13 @@ test("dynamic programming", () => {
 });
 
 test("transpose object to array of key value", () => {
-  const o = { "1:5": 212, "5:2": 12, "3:5": 6 };
-  const a = Object.entries(o).map(([k, v]) => ({ k, v }));
-  expect(a).toEqual([
-    { k: "1:5", v: 212 },
-    { k: "5:2", v: 12 },
+  const o = { "1:5": 212, "5:2": 642, "3:5": 6 };
+  const list = Object.entries(o).map(([k, v]) => ({ k, v }));
+  const sorted = list.sort((a, b) => a.v - b.v);
+
+  expect(sorted).toEqual([
     { k: "3:5", v: 6 },
+    { k: "1:5", v: 212 },
+    { k: "5:2", v: 642 },
   ]);
 });
