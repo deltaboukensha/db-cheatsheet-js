@@ -1,0 +1,26 @@
+{
+  "name": "db-cheatsheet-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest .",
+    "format": "prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deltaboukensha/db-cheatsheet-js.git"
+  },
+  "author": "daniel.boukensha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deltaboukensha/db-cheatsheet-js/issues"
+  },
+  "homepage": "https://github.com/deltaboukensha/db-cheatsheet-js#readme",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  },
+  "dependencies": {
+    "prettier": "^2.3.2"
+  }
+}
