@@ -188,7 +188,7 @@ test("Number MAX_SAFE_INTEGER", () => {
   expect(Number.MAX_SAFE_INTEGER.toString()).toEqual("9007199254740991");
 });
 
-test("Number MAX_SAFE_INTEGER", () => {
+test("iterator", () => {
   function* foo() {
     for (let i = 0; i < 5; i++) {
       yield i;
@@ -201,4 +201,10 @@ test("Number MAX_SAFE_INTEGER", () => {
   expect(iterator.next().value).toEqual(2);
   expect(iterator.next().value).toEqual(3);
   expect(iterator.next().value).toEqual(4);
+
+  const v = [];
+  for (const i of foo()) {
+    v.push(i);
+  }
+  expect(v).toEqual([0, 1, 2, 3, 4]);
 });
