@@ -171,3 +171,34 @@ test("array destructuring assignment", () => {
   expect(b).toEqual("b");
   expect(rest).toEqual({ c: "c", d: "d", e: "e" });
 });
+
+test("Number MIN_VALUE", () => {
+  expect(Number.MIN_VALUE.toString()).toEqual("5e-324");
+});
+
+test("Number MAX_VALUE", () => {
+  expect(Number.MAX_VALUE.toString()).toEqual("1.7976931348623157e+308");
+});
+
+test("Number MIN_SAFE_INTEGER", () => {
+  expect(Number.MIN_SAFE_INTEGER.toString()).toEqual("-9007199254740991");
+});
+
+test("Number MAX_SAFE_INTEGER", () => {
+  expect(Number.MAX_SAFE_INTEGER.toString()).toEqual("9007199254740991");
+});
+
+test("Number MAX_SAFE_INTEGER", () => {
+  function* foo() {
+    for (let i = 0; i < 5; i++) {
+      yield i;
+    }
+  }
+
+  const iterator = foo();
+  expect(iterator.next().value).toEqual(0);
+  expect(iterator.next().value).toEqual(1);
+  expect(iterator.next().value).toEqual(2);
+  expect(iterator.next().value).toEqual(3);
+  expect(iterator.next().value).toEqual(4);
+});
