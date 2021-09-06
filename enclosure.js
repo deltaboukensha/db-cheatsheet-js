@@ -6,6 +6,7 @@
  */
 var isValid = function (input) {
   //console.log({input})
+  if(!input) return true
 
   let list = input.split("");
   let stack = [];
@@ -41,3 +42,5 @@ var isValid = function (input) {
   //console.log({answer})
   return answer;
 };
+
+module.exports = { isValid }
