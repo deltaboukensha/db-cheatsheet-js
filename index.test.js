@@ -440,7 +440,7 @@ test("transpose object to array of key value", () => {
   ]);
 });
 
-test("tr", () => {
+test("test", () => {
   const o = { "1:5": 212, "5:2": 642, "3:5": 6 };
   const list = Object.entries(o).map(([k, v]) => ({ k, v }));
   const sorted = list.sort((a, b) => a.v - b.v);
