@@ -1,6 +1,7 @@
 /**
  * Solves the typical problem of validating square brackets, curly braces, parenthesis angle braces
  * ()[]{}(((())))[[[[]]]]{{{{}}}}((()()()()))
+ * https://leetcode.com/problems/valid-parentheses/
  * @param {string} s
  * @return {boolean}
  */
